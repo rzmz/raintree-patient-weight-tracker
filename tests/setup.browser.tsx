@@ -1,32 +1,9 @@
-import "../app/tailwind.css"
 import { renderHook as renderReactHook } from "@testing-library/react"
-import { createInstance } from "i18next"
-import { I18nextProvider, initReactI18next } from "react-i18next"
 import { createRoutesStub, Outlet, type RoutesTestStubProps } from "react-router"
 import { render } from "vitest-browser-react"
-import i18n from "~/localization/i18n"
-import { type Language, type Namespace, resources } from "~/localization/resource"
 export type StubRouteEntry = Parameters<typeof createRoutesStub>[0][0]
 
-const renderStub = async (args?: {
-	props?: RoutesTestStubProps
-	entries?: StubRouteEntry[]
-	i18n?: {
-		lng?: Language
-		ns?: Namespace | Namespace[]
-	}
-}) => {
-	const instance = createInstance()
-	// Initialize the i18next instance
-	await instance
-		.use(initReactI18next) // Tell our instance to use react-i18next
-		.init({
-			...i18n, // spread the configuration
-			lng: args?.i18n?.lng ?? "en", // The locale can be set per test or defaults to english
-			ns: args?.i18n?.ns ?? "common", // The namespaces can be set in the test or defaults to common
-			resources,
-		})
-
+const renderStub = async (args?: { props?: RoutesTestStubProps; entries?: StubRouteEntry[] }) => {
 	// We create the entries array to be rendered by react-router
 	const entries: StubRouteEntry[] = [
 		{
@@ -35,9 +12,7 @@ const renderStub = async (args?: {
 			children: args?.entries ?? [],
 			Component: () => (
 				<div data-testid="root">
-					<I18nextProvider i18n={instance}>
-						<Outlet />
-					</I18nextProvider>
+					<Outlet />
 				</div>
 			),
 		},

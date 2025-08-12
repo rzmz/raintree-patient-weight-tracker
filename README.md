@@ -12,13 +12,11 @@ advanced features. This is an ESM Vite stack with Remix.run / React Router v7.
 It includes a basic setup for a project with react-router v7 framework mode and:
 - React 19 & react-compiler
 - TypeScript
-- TailwindCSS
 - Vite
 - Vitest (unit tests)
 - Scripting
 - Biome (linter & formatter)
-- i18n support (client and server)
-- Icons spritesheet generator
+- Internationalization support (client and server)
 - lefthook hooks
 - CI checks for quality control
 - react-router-devtools
@@ -28,11 +26,10 @@ It includes a basic setup for a project with react-router v7 framework mode and:
 
 ## Internationalization
 
-This stack uses i18next for internationalization. It supports both client and server side translations.
+This stack uses  Paraglide JS for internationalization. It supports both client and server side translations.
 Features included out of the box:
 - Support for multiple languages
 - Typesafe resources
-- client side translations are fetched only when needed
 - language switcher
 - language detector (uses the request to detect the language, falls back to your fallback language)
 
@@ -42,7 +39,7 @@ This stack uses Hono for the server. More information about Hono can be found [h
 Another important thing to note is that we use a dependency called `react-router-hono-server` which is a wrapper for Hono that allows us to use Hono in our React Router application.
 
 The server comes preconfigured with:
-- i18next middleware
+- Paraglide JS middleware
 - caching middleware for assets
 - easily extendable global application context
 - .env injection into context
