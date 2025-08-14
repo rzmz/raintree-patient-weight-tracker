@@ -58,13 +58,13 @@ function getErrorMessage(statusCode: number) {
 	// Add supported error code messages here
 	switch (statusCode) {
 		case 200:
-			return { statusCode, title: m["error.200.title"], description: m["error.200.description"] }
+			return { statusCode, title: m["errors.200.title"], description: m["errors.200.description"] }
 		case 403:
-			return { statusCode, title: m["error.403.title"], description: m["error.403.description"] }
+			return { statusCode, title: m["errors.403.title"], description: m["errors.403.description"] }
 		case 404:
-			return { statusCode, title: m["error.404.title"], description: m["error.404.description"] }
+			return { statusCode, title: m["errors.404.title"], description: m["errors.404.description"] }
 		default:
-			return { statusCode: 500, title: m["error.500.title"], description: m["error.500.description"] }
+			return { statusCode: 500, title: m["errors.500.title"], description: m["errors.500.description"] }
 	}
 }
 

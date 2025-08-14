@@ -1,7 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"example_message": "Hello, {username}",
-	"error": {
+	"errors": {
 		"500": {
 			"title": "Something went wrong!",
 			"description": "Looks like something unexpected happened on the server."
@@ -23,8 +23,18 @@
 		"back": "Go back",
 		"home": "Home"
 	},
-	"general": {
+	"meta": {
 		"app_title": "Patients weight tracker",
 		"app_description": "Track your patients' weight easily and efficiently."
+	},
+	"patients": {
+		"title": "Patients list",
+		"details": "Patient details for {name}",
+		"id": "Patient ID",
+		"name": "Patient Name",
+		"dob": "Date of Birth"
+	},
+	"general": {
+		"details": "Details"
 	}
 }
