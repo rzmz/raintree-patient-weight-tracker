@@ -1,3 +1,4 @@
+import { MantineProvider } from "@mantine/core"
 import { renderHook as renderReactHook } from "@testing-library/react"
 import { createRoutesStub, Outlet, type RoutesTestStubProps } from "react-router"
 import { render } from "vitest-browser-react"
@@ -11,9 +12,11 @@ const renderStub = async (args?: { props?: RoutesTestStubProps; entries?: StubRo
 			path: "/",
 			children: args?.entries ?? [],
 			Component: () => (
-				<div data-testid="root">
-					<Outlet />
-				</div>
+				<MantineProvider>
+					<div data-testid="root">
+						<Outlet />
+					</div>
+				</MantineProvider>
 			),
 		},
 	]
