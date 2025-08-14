@@ -1,4 +1,4 @@
-import * as Module from "./_index"
+import * as Module from "../features/home"
 
 describe("Home route", () => {
 	it("should render the home page text properly in english", async ({ renderStub }) => {
@@ -13,8 +13,8 @@ describe("Home route", () => {
 		})
 
 		expect(
-			getByText("React Router is awesome!", {
-				exact: false,
+			getByText("Hello from React Router!", {
+				exact: true,
 			})
 		).not.toBeNull()
 	})
