@@ -34,7 +34,16 @@
 		"name": "Patient Name",
 		"dob": "Date of Birth"
 	},
+	"measurements": {
+		"title": "Patient Measurements",
+		"id": "Measurement ID",
+		"weight": "Weight",
+		"date": "Date",
+		"missing": "No measurements found",
+		"add": "Add Measurement"
+	},
 	"general": {
-		"details": "Details"
+		"details": "Details",
+		"submit": "Submit"
 	}
 }

@@ -1,28 +1,35 @@
-import { patients } from "~/data/patients"
+import { Box, Stack, Title } from "@mantine/core"
+import { getMeasurements } from "~/data/measurements"
+import { getPatients } from "~/data/patients"
 import { m } from "~/paraglide/messages"
 import type { Route } from "./+types/details"
+import { PatientMeasurements } from "./components/PatientMeasurements"
 
-export function loader({ params }: Route.LoaderArgs) {
-	const patient = patients.find((p) => p.id === params.patientId)
+export async function loader({ params }: Route.LoaderArgs) {
+	const patient = getPatients.find((p) => p.id === params.patientId)
 	if (!patient) {
 		throw new Response("Patient not found", { status: 404 })
 	}
-	return { patient }
+	const measurements = await getMeasurements(patient.id)
+	return { patient, measurements }
 }
 
 export default function PatientDetails({ loaderData }: Route.ComponentProps) {
-	const { patient } = loaderData
+	const { patient, measurements } = loaderData
+	const { documents, total } = measurements.result || { documents: [], total: 0 }
+
 	return (
-		<div>
-			<h1>{m["patients.details"]({ name: patient.name })}</h1>
-			<p>
+		<Stack>
+			<Title>{m["patients.details"]({ name: patient.name })}</Title>
+			<Box>
 				{m["patients.id"]()} <br />
 				<b>{patient.id}</b>
-			</p>
-			<p>
+			</Box>
+			<Box>
 				{m["patients.dob"]()} <br />
 				<b>{patient.dob.toLocaleDateString()}</b>
-			</p>
-		</div>
+			</Box>
+			<PatientMeasurements documents={documents} total={total} />
+		</Stack>
 	)
 }

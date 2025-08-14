@@ -1,0 +1,23 @@
+import invariant from "tiny-invariant"
+
+const {
+	VITE_APPWRITE_PROJECT_ID,
+	VITE_APPWRITE_PROJECT_NAME,
+	VITE_APPWRITE_ENDPOINT,
+	VITE_APP_DB_ID,
+	VITE_MEASUREMENTS_COLLECTION_ID,
+} = import.meta.env
+
+invariant(VITE_APPWRITE_PROJECT_ID, "VITE_APPWRITE_PROJECT_ID is not set in .env")
+invariant(VITE_APPWRITE_PROJECT_NAME, "VITE_APPWRITE_PROJECT_NAME is not set in .env")
+invariant(VITE_APPWRITE_ENDPOINT, "VITE_APPWRITE_ENDPOINT is not set in .env")
+invariant(VITE_APP_DB_ID, "VITE_APP_DB_ID is not set in .env")
+invariant(VITE_MEASUREMENTS_COLLECTION_ID, "VITE_MEASUREMENTS_COLLECTION_ID is not set in .env")
+
+export const Config = {
+	ProjectId: VITE_APPWRITE_PROJECT_ID,
+	ProjectName: VITE_APPWRITE_PROJECT_NAME,
+	Endpoint: VITE_APPWRITE_ENDPOINT,
+	DatabaseId: VITE_APP_DB_ID,
+	MeasurementsCollectionId: VITE_MEASUREMENTS_COLLECTION_ID,
+}

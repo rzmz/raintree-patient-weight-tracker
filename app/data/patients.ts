@@ -1,10 +1,6 @@
-export type Patient = {
-	id: string
-	name: string
-	dob: Date
-}
+import type { Patient } from "./types/Patient"
 
-export const patients: Patient[] = [
+export const getPatients: Patient[] = [
 	{
 		id: "1",
 		name: "John Doe",

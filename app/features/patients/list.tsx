@@ -1,12 +1,12 @@
 import { Anchor, Box, Table, Title } from "@mantine/core"
 import { data, Link } from "react-router"
-import { patients } from "~/data/patients"
+import { getPatients } from "~/data/patients"
 import { m } from "~/paraglide/messages"
 import type { Route } from "./+types/list"
 
 export async function loader() {
 	// Load patient data here
-	return data({ patients })
+	return data({ patients: getPatients })
 }
 
 export default function PatientsList({ loaderData }: Route.ComponentProps) {
