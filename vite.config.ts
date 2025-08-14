@@ -16,7 +16,7 @@ export default defineConfig({
 			project: "./project.inlang",
 			outdir: "./app/paraglide",
 			strategy: ["cookie", "preferredLanguage", "baseLocale"],
-			cookieName: "lng",
+			cookieName: "lang",
 		}),
 		// Run the react-compiler on .tsx files only when bundling
 		reactRouterDevTools(),

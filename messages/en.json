@@ -1,4 +1,30 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"example_message": "Hello, {username}"
+	"example_message": "Hello, {username}",
+	"error": {
+		"500": {
+			"title": "Something went wrong!",
+			"description": "Looks like something unexpected happened on the server."
+		},
+		"404": {
+			"title": "Page Not found!",
+			"description": "Oops! The page you're looking for seems to have vanished into thin air."
+		},
+		"403": {
+			"title": "Unauthorized!",
+			"description": "Looks like you can't access this page."
+		},
+		"200": {
+			"title": "Something went wrong!",
+			"description": "Looks like something unexpected happened on the server."
+		}
+	},
+	"navigation": {
+		"back": "Go back",
+		"home": "Home"
+	},
+	"general": {
+		"app_title": "Patients weight tracker",
+		"app_description": "Track your patients' weight easily and efficiently."
+	}
 }
