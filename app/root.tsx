@@ -1,6 +1,7 @@
 import type { LinksFunction } from "react-router"
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router"
 import type { Route } from "./+types/root"
+import { localeMiddleware } from "./middleware/locale"
 import { ClientHintCheck, getHints } from "./services/client-hints"
 
 export async function loader({ context, request }: Route.LoaderArgs) {
@@ -8,6 +9,8 @@ export async function loader({ context, request }: Route.LoaderArgs) {
 	const hints = getHints(request)
 	return { lang, clientEnv, hints }
 }
+
+export const unstable_middleware = [localeMiddleware]
 
 export const links: LinksFunction = () => []
 

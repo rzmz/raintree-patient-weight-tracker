@@ -4,5 +4,5 @@
 	"remix": true,
 	"lefthook": true,
 	"project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}"],
-	"ignore": ["react-router.config.ts"]
+	"ignore": ["react-router.config.ts", "./app/paraglide/*"]
 }
