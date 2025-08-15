@@ -17,7 +17,8 @@
 		"200": {
 			"title": "Something went wrong!",
 			"description": "Looks like something unexpected happened on the server."
-		}
+		},
+		"validation": "Data validation error"
 	},
 	"navigation": {
 		"back": "Go back",
@@ -38,6 +39,7 @@
 		"title": "Patient Measurements",
 		"id": "Measurement ID",
 		"weight": "Weight",
+		"weight:hint": "Weight",
 		"date": "Date",
 		"missing": "No measurements found",
 		"add": "Add Measurement"

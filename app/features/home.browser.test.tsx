@@ -12,10 +12,9 @@ describe("Home route", () => {
 			],
 		})
 
-		expect(
-			getByText("Hello from React Router!", {
-				exact: true,
-			})
-		).not.toBeNull()
+		const homeText = getByText("Welcome to the Patient Weight Tracker!")
+
+		// TODO: this is always green no matter the text
+		expect(homeText).not.toBeNull()
 	})
 })

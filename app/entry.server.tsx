@@ -1,8 +1,9 @@
-import { PassThrough } from "node:stream"
+// biome-ignore assist/source/organizeImports: Aargh
 import { createReadableStreamFromReadable } from "@react-router/node"
 import { isbot } from "isbot"
+import { PassThrough } from "node:stream"
 import { renderToPipeableStream } from "react-dom/server"
-import { type AppLoadContext, type EntryContext, type HandleDataRequestFunction, ServerRouter } from "react-router"
+import { type EntryContext, type HandleDataRequestFunction, ServerRouter } from "react-router"
 
 // Reject all pending promises from handler functions after 10 seconds
 export const streamTimeout = 10000
@@ -11,8 +12,7 @@ export default async function handleRequest(
 	request: Request,
 	responseStatusCode: number,
 	responseHeaders: Headers,
-	context: EntryContext,
-	appContext: AppLoadContext
+	context: EntryContext
 ) {
 	const callbackName = isbot(request.headers.get("user-agent")) ? "onAllReady" : "onShellReady"
 
@@ -26,8 +26,7 @@ export default async function handleRequest(
 				responseHeaders.set("Content-Type", "text/html")
 
 				resolve(
-					// @ts-expect-error - We purposely do not define the body as existent so it's not used inside loaders as it's injected there as well
-					appContext.body(stream, {
+					new Response(stream, {
 						headers: responseHeaders,
 						status: didError ? 500 : responseStatusCode,
 					})

@@ -3,7 +3,7 @@ import { getMeasurements } from "~/data/measurements"
 import { getPatients } from "~/data/patients"
 import { m } from "~/paraglide/messages"
 import type { Route } from "./+types/details"
-import { PatientMeasurements } from "./components/PatientMeasurements"
+import { Measurements } from "./components/Measurements"
 
 export async function loader({ params }: Route.LoaderArgs) {
 	const patient = getPatients.find((p) => p.id === params.patientId)
@@ -29,7 +29,7 @@ export default function PatientDetails({ loaderData }: Route.ComponentProps) {
 				{m["patients.dob"]()} <br />
 				<b>{patient.dob.toLocaleDateString()}</b>
 			</Box>
-			<PatientMeasurements documents={documents} total={total} />
+			<Measurements documents={documents} total={total} />
 		</Stack>
 	)
 }

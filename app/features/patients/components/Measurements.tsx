@@ -9,7 +9,7 @@ type MeasurementsTableProps = {
 	documents: Measurement[]
 }
 
-export function PatientMeasurements({ documents, total }: MeasurementsTableProps) {
+export function Measurements({ documents, total }: MeasurementsTableProps) {
 	const [opened, { open, close }] = useDisclosure(false)
 
 	return (
