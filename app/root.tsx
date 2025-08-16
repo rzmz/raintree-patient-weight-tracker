@@ -57,8 +57,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 function getErrorMessage(statusCode: number) {
 	// Add supported error code messages here
 	switch (statusCode) {
-		case 200:
-			return { statusCode, title: m["errors.200.title"], description: m["errors.200.description"] }
 		case 403:
 			return { statusCode, title: m["errors.403.title"], description: m["errors.403.description"] }
 		case 404:

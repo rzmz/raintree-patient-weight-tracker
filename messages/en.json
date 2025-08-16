@@ -14,10 +14,6 @@
 			"title": "Unauthorized!",
 			"description": "Looks like you can't access this page."
 		},
-		"200": {
-			"title": "Something went wrong!",
-			"description": "Looks like something unexpected happened on the server."
-		},
 		"validation": "Data validation error"
 	},
 	"navigation": {
